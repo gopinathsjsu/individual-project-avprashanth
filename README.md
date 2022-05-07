@@ -18,16 +18,28 @@
 
 # Design Patterns Used - 
 1) Builder : 
-I have used Builder Design Pattern to convert data from CSV and map to Java Objects. This creational design pattern helped me to construct complex objects step by step. Additionally, Builder pattern allowed me to produce different types and representations of an object using the same construction code. I have used the same object construction code to structure both Input and Output data.
+I have used Builder Design Pattern to convert data from CSV and map to Java Objects. This creational design pattern helped me to construct complex objects step by step. Additionally, Builder pattern allowed me to produce different types and representations of an object using the same construction code. I have used the same object construction code that I used to build Card Data for building Order.
+
+<img width="675" alt="image" src="https://user-images.githubusercontent.com/75163512/167275933-740a04e4-1c57-40d1-ac93-1400adb94bed.png">
+
 
 2) Singleton : 
 The constraints on this project is to limit users from purchasing items belonging to multiple categories. Singleton creationaly design pattern helped me to construct instance of the category limit only at the start of the application. This limit set on different categories will not be reset but always the updated limit is fetched to user on request of the object instance. 
 
+<img width="675" alt="image" src="https://user-images.githubusercontent.com/75163512/167275956-2c4bb3dc-d27d-4337-9b5d-ed9cf7e676a8.png">
+
+
 3) Factory : 
 The final creational design pattern I have used is Factory. I have noticed that the categories - Essential/Luxury/Misc all have the same construction code and instead of duplicating the construction code in each of these classes, I have used Factory design pattern to redirect the object creation based on the category type on demand. 
 
+<img width="675" alt="image" src="https://user-images.githubusercontent.com/75163512/167275957-666a45a4-5125-4d95-bd3c-2c94519b96ed.png">
+
+
 4) Chain of Responsibility : 
 Upon validation of input order, I have to either print receipt or generate an error text file. I have identified these responsibilities to be handled by the COR Design Pattern. The responsibility has been handed over to print receipt on a valid input order and to generate a text file if an invalid input order is encountered.  
+
+<img width="675" alt="image" src="https://user-images.githubusercontent.com/75163512/167275964-57186830-a99a-4490-ba81-f4ddc199cbf5.png">
+
 
 # Class Diagram - 
 <img width="1221" alt="ClassDiagram" src="https://user-images.githubusercontent.com/75163512/167275752-0b8d0638-db31-4db4-b09d-6f48d863d47c.png">
