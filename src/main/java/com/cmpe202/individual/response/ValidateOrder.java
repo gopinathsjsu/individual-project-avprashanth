@@ -5,6 +5,8 @@ import com.cmpe202.individual.builder.OrderBuilder;
 import com.cmpe202.individual.model.InventoryItem;
 import com.cmpe202.individual.model.Order;
 import com.cmpe202.individual.model.OrderItem;
+import com.cmpe202.individual.model.factory.Category;
+import com.cmpe202.individual.model.factory.CategoryFactory;
 import com.cmpe202.individual.response.validate.CategoryLimit;
 
 import java.io.FileWriter;
@@ -40,21 +42,26 @@ public class ValidateOrder implements  BillingHandler{
             int orderQuantity = item.getQuantity();
             InventoryItem inventory = inventoryStock.get(itemName);
             int inventoryQuantity = inventory.getQuantity();
-            String category = inventory.getCategory();
+            String categoryStr = inventory.getCategory();
 
-            int allowedLimit = categoryLimitMap.get(category);
+            CategoryFactory categoryFactory = new CategoryFactory();
+            Category category = categoryFactory.getCategory(categoryStr);
+
+            int currentCount = category.getCategoryCount();
+
+            int allowedLimit = categoryLimitMap.get(categoryStr);
             boolean withInInventory = inventoryQuantity - orderQuantity >= 0;
-            boolean withInAllowed = allowedLimit - orderQuantity >= 0;
+            boolean withInAllowed = allowedLimit - (orderQuantity+currentCount) >= 0;
             if(withInInventory && withInAllowed) {
                 inventory.setQuantity(inventoryQuantity - orderQuantity);
-                categoryLimitMap.put(category, allowedLimit - orderQuantity);
+                category.setCategoryCount(orderQuantity);
             } else {
-                writeError.write("Cannot proceed to payment because "+itemName +  (!withInAllowed ? " has exceeded the "
-                        + category + " limit. Please resubmit the order with quantity no greater than "+allowedLimit : " of quantity "+orderQuantity +
+                writeError.write("Cannot proceed to payment because "+itemName +  (!withInAllowed ? " has exceeded the category("
+                        + categoryStr + ") limit. Please resubmit the order with quantity no greater than "+ (allowedLimit - currentCount) : " of quantity "+orderQuantity +
                         " does not contain in the inventory. Resubmit the order with quantity no greater than "+inventoryQuantity+" for successful " +
                         "transaction") );
+                writeError.write("\n");
                 flag = true;
-                break;
             }
         }
 
