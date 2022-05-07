@@ -1,1 +1,0 @@
-Cannot proceed to payment because Wallet has exceeded the Luxury limit. Please resubmit the order with quantity no greater than 1

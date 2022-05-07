@@ -26,19 +26,18 @@ public class PrintReceipt implements  BillingHandler{
         List<Order> orderList = OrderBuilder.orderList;
         List<String[]> dataLines = new ArrayList<>();
 
-        String[] dataArr = { "Item", "Quantity", "Price", "Total Price" };
+        String[] header = { "Item", "Quantity", "Price", "Total Price" };
 
-        dataLines.add(dataArr);
+        dataLines.add(header);
         for (Order order : orderList) {
             OrderItem item = order.getItem();
-            dataArr = new String[4];
-            dataArr[0] = item.getItemName();
-            dataArr[1] = String.valueOf(item.getQuantity());
+            String itemName = item.getItemName();
+            String itemQuantity = String.valueOf(item.getQuantity());
             double price_per_unit = InventoryBuilder.itemMap.get(item.getItemName()).getPrice();
             int quantity = item.getQuantity();
-            dataArr[2] = String.valueOf(quantity * price_per_unit);
-            dataArr[3] ="";
-            dataLines.add(dataArr);
+            String price = String.valueOf(quantity * price_per_unit);
+            String empty ="";
+            dataLines.add(new String[] {itemName, itemQuantity, price, empty});
         }
         for (Order order : orderList) {
             OrderItem item = order.getItem();
@@ -57,7 +56,6 @@ public class PrintReceipt implements  BillingHandler{
     }
 
     public String convertToCSV(String[] data) {
-
         StringBuilder sb = new StringBuilder();
         int index = 1;
         for(String str : data) {
