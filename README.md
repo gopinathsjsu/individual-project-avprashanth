@@ -17,6 +17,16 @@
 
 
 # Design Patterns Used - 
+1) Builder : 
+I have used Builder Design Pattern to convert data from CSV and map to Java Objects. This creational design pattern helped me to construct complex objects step by step. Additionally, Builder pattern allowed me to produce different types and representations of an object using the same construction code. I have used the same object construction code to structure both Input and Output data.
 
+2) Singleton : 
+The constraints on this project is to limit users from purchasing items belonging to multiple categories. Singleton creationaly design pattern helped me to construct instance of the category limit only at the start of the application. This limit set on different categories will not be reset but always the updated limit is fetched to user on request of the object instance. 
+
+3) Factory : 
+The final creational design pattern I have used is Factory. I have noticed that the categories - Essential/Luxury/Misc all have the same construction code and instead of duplicating the construction code in each of these classes, I have used Factory design pattern to redirect the object creation based on the category type on demand. 
+
+4) Chain of Responsibility
+Upon validation of input order, I have to either print receipt or generate an error text file. I have identified these responsibilities to be handled by the COR Design Pattern. The responsibility has been handed over to print receipt on a valid input order and to generate a text file if an invalid input order is encountered.  
 
 # Class Diagram - 
