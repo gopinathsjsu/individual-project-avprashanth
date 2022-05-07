@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Billing {
 
-    private static String CARD_DETAILS = "cards.csv";
+    private static String CARD_DETAILS = "CardData.csv";
     private static String INVENTORY = "Inventory.csv";
 
     public static void main(String[] args) throws IOException {

@@ -3,9 +3,9 @@ package com.cmpe202.individual.model;
 public class OrderItem {
 
     private String itemName;
-    private String quantity;
+    private Integer quantity;
 
-    public OrderItem(String itemName, String quantity) {
+    public OrderItem(String itemName, Integer quantity) {
         this.itemName = itemName;
         this.quantity = quantity;
     }
@@ -18,11 +18,11 @@ public class OrderItem {
         this.itemName = itemName;
     }
 
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

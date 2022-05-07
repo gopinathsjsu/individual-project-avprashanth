@@ -36,7 +36,7 @@ public class OrderBuilder {
                     }
                     card = new Card(cardNumber);
                 }
-                OrderItem orderItem = new OrderItem(item, quantity);
+                OrderItem orderItem = new OrderItem(item, Integer.parseInt(quantity));
                 Order order = new Order(orderItem, card);
                 orderList.add(order);
             }
