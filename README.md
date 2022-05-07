@@ -26,7 +26,8 @@ The constraints on this project is to limit users from purchasing items belongin
 3) Factory : 
 The final creational design pattern I have used is Factory. I have noticed that the categories - Essential/Luxury/Misc all have the same construction code and instead of duplicating the construction code in each of these classes, I have used Factory design pattern to redirect the object creation based on the category type on demand. 
 
-4) Chain of Responsibility
+4) Chain of Responsibility : 
 Upon validation of input order, I have to either print receipt or generate an error text file. I have identified these responsibilities to be handled by the COR Design Pattern. The responsibility has been handed over to print receipt on a valid input order and to generate a text file if an invalid input order is encountered.  
 
 # Class Diagram - 
+<img width="1221" alt="ClassDiagram" src="https://user-images.githubusercontent.com/75163512/167275752-0b8d0638-db31-4db4-b09d-6f48d863d47c.png">
