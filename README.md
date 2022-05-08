@@ -17,26 +17,26 @@
 
 
 # Design Patterns Used - 
-1) Builder : 
-I have used Builder Design Pattern to convert data from CSV and map to Java Objects. This creational design pattern helped me to construct complex objects step by step. Additionally, Builder pattern allowed me to produce different types and representations of an object using the same construction code. I have used the same object construction code that I used to build Card Data for building Order.
+### 1) Builder : 
+I have used Builder Design Pattern to convert data from CSV and map to Java Objects. This creational design pattern helped me to construct complex objects step by step. Additionally, the Builder pattern allowed me to produce different types and representations of an object using the same construction code - I have used the construction code that I used to build Card Data for building Order.
 
 <img width="675" alt="image" src="https://user-images.githubusercontent.com/75163512/167275933-740a04e4-1c57-40d1-ac93-1400adb94bed.png">
 
 
-2) Singleton : 
-The constraints on this project is to limit users from purchasing items belonging to multiple categories. Singleton creationaly design pattern helped me to construct instance of the category limit only at the start of the application. This limit set on different categories will not be reset but always the updated limit is fetched to user on request of the object instance. 
+### 2) Singleton : 
+The constraints on this project is to limit users from purchasing items belonging to multiple categories. Singleton creational design pattern helped me to construct instance of the category limit only at the start of the application. This limit on different categories will not be reset but always the updated limit is fetched to the user on request of the object instance. 
 
 <img width="675" alt="image" src="https://user-images.githubusercontent.com/75163512/167275956-2c4bb3dc-d27d-4337-9b5d-ed9cf7e676a8.png">
 
 
-3) Factory : 
-The final creational design pattern I have used is Factory. I have noticed that the categories - Essential/Luxury/Misc all have the same construction code and instead of duplicating the construction code in each of these classes, I have used Factory design pattern to redirect the object creation based on the category type on demand. 
+### 3) Factory : 
+The final creational design pattern I have used is Factory. I have noticed that the categories - Essential/Luxury/Misc all have the same construction code and instead of duplicating the construction code in each of these classes, I have used the Factory design pattern to redirect the object creation based on the category type on demand.
 
 <img width="675" alt="image" src="https://user-images.githubusercontent.com/75163512/167275957-666a45a4-5125-4d95-bd3c-2c94519b96ed.png">
 
 
-4) Chain of Responsibility : 
-Upon validation of input order, I have to either print receipt or generate an error text file. I have identified these responsibilities to be handled by the COR Design Pattern. The responsibility has been handed over to print receipt on a valid input order and to print error if an invalid input order is encountered.  
+### 4) Chain of Responsibility : 
+Upon validation of the input order, I have to either print the receipt or generate an error text file. I have identified these responsibilities to be handled by the COR Design Pattern. The responsibility has been handed over to print a receipt on a valid input order and to print error if an invalid input order is encountered.  
 
 <img width="675" alt="image" src="https://user-images.githubusercontent.com/75163512/167279390-9204bf9a-ee79-4f5b-9d4a-41d82c62187a.png">
 
