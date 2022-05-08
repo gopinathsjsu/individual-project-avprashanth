@@ -36,9 +36,9 @@ The final creational design pattern I have used is Factory. I have noticed that 
 
 
 4) Chain of Responsibility : 
-Upon validation of input order, I have to either print receipt or generate an error text file. I have identified these responsibilities to be handled by the COR Design Pattern. The responsibility has been handed over to print receipt on a valid input order and to generate a text file if an invalid input order is encountered.  
+Upon validation of input order, I have to either print receipt or generate an error text file. I have identified these responsibilities to be handled by the COR Design Pattern. The responsibility has been handed over to print receipt on a valid input order and to print error if an invalid input order is encountered.  
 
-<img width="675" alt="image" src="https://user-images.githubusercontent.com/75163512/167275964-57186830-a99a-4490-ba81-f4ddc199cbf5.png">
+<img width="675" alt="image" src="https://user-images.githubusercontent.com/75163512/167279390-9204bf9a-ee79-4f5b-9d4a-41d82c62187a.png">
 
 
 # Class Diagram - 
