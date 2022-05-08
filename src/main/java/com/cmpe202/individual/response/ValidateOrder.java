@@ -30,7 +30,7 @@ public class ValidateOrder implements  BillingHandler{
 
         HashMap<String, InventoryItem> inventoryStock = InventoryBuilder.itemMap;
         List<Order> inputData = OrderBuilder.orderList;
-        boolean flag = false;
+        boolean errorEncountered = false;
 
         CategoryLimit categoryLimit = CategoryLimit.getInstance();
         HashMap<String, Integer> categoryLimitMap = categoryLimit.categoryLimitMap;
@@ -56,16 +56,13 @@ public class ValidateOrder implements  BillingHandler{
                 inventory.setQuantity(inventoryQuantity - orderQuantity);
                 category.setCategoryCount(orderQuantity);
             } else {
-                writeError.write("Cannot proceed to payment because "+itemName +  (!withInAllowed ? " has exceeded the category("
-                        + categoryStr + ") limit. Please resubmit the order with quantity no greater than "+ (allowedLimit - currentCount) : " of quantity "+orderQuantity +
-                        " does not contain in the inventory. Resubmit the order with quantity no greater than "+inventoryQuantity+" for successful " +
-                        "transaction") );
-                writeError.write("\n");
-                flag = true;
+                writeToFile(writeError, itemName, orderQuantity, inventoryQuantity,
+                        categoryStr, currentCount, allowedLimit, withInAllowed);
+                errorEncountered = true;
             }
         }
 
-        if (flag) {
+        if (errorEncountered) {
             try {
                 writeError.close();
                 System.out.println(
@@ -79,6 +76,15 @@ public class ValidateOrder implements  BillingHandler{
         PrintReceipt receipt = new PrintReceipt();
         this.setBillingHandler(receipt);
         next.validateStock();
+    }
+
+    private void writeToFile(FileWriter writeError, String itemName, int orderQuantity, int inventoryQuantity,
+                             String categoryStr, int currentCount, int allowedLimit, boolean withInAllowed) throws IOException {
+        writeError.write("Cannot proceed to payment because "+ itemName +  (!withInAllowed ? " has exceeded the category("
+                + categoryStr + ") limit. Please resubmit the order with quantity no greater than "+ (allowedLimit - currentCount) : " of quantity "+ orderQuantity +
+                " does not contain in the inventory. Resubmit the order with quantity no greater than "+ inventoryQuantity +" for successful " +
+                "transaction") );
+        writeError.write("\n");
     }
 
 
