@@ -1,6 +1,6 @@
 # Information to know - 
 1) This is a java application built using Gradle 
-2) Install gradle 8.0 in IDE of your choice (IntellIJ is preferred)
+2) Install latest version of gradle in IDE of your choice (IntellIJ is preferred)
 
 
 # Steps to run the project -
