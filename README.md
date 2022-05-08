@@ -42,4 +42,6 @@ Upon validation of the input order, I have to either print the receipt or genera
 
 
 # Class Diagram - 
-<img width="1221" alt="ClassDiagram" src="https://user-images.githubusercontent.com/75163512/167275752-0b8d0638-db31-4db4-b09d-6f48d863d47c.png">
+<img width="1634" alt="image" src="https://user-images.githubusercontent.com/75163512/167287218-91b0276a-b876-4af2-80b0-fc87070af34e.png">
+
+
