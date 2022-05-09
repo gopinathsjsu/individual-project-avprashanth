@@ -32,7 +32,7 @@ public class OrderBuilder {
                     String cardNumber = orderArr[2];
                     if(!cardNumber.trim().isEmpty() && !CardBuilder.cardNumbers.containsKey(cardNumber)) {
                         card = new Card(cardNumber);
-                        CardBuilder.cardNumbers.put(cardNumber, card);
+                        CardBuilder.cardNumbers.putIfAbsent(cardNumber, card);
                     }
                     card = new Card(cardNumber);
                 }
